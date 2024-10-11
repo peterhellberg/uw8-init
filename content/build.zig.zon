@@ -1,0 +1,15 @@
+.{
+    .name = "uw8-cart",
+    .version = "0.0.0",
+    .dependencies = .{
+        .uw8 = .{
+            .url = "https://github.com/peterhellberg/uw8/archive/refs/tags/v0.0.1.tar.gz",
+            .hash = "1220d85d300fa68b3fe7178bd1bd62d648bc5641730feda58d9814156656d595bb80",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+    },
+}
