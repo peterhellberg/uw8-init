@@ -59,12 +59,12 @@ pub fn build(b: *std.Build) void {
         "uw8",
         "run",
         "--watch",
-        "-b",
+        "--no-gpu",
         "zig-out/uw8-cart.uw8",
     });
     run_cmd.step.dependOn(make_opt);
 
-    const run_step = b.step("run", "Run the MicroW8 cart in your browser");
+    const run_step = b.step("run", "Run the MicroW8 cart");
     run_step.dependOn(&run_cmd.step);
 
     const spy_cmd = b.addSystemCommand(&[_][]const u8{
