@@ -2,7 +2,7 @@ const std = @import("std");
 
 pub fn build(b: *std.Build) void {
     const exe = b.addExecutable(.{
-        .name = "cart",
+        .name = "uw8-cart",
         .root_source_file = b.path("src/main.zig"),
         .target = b.resolveTargetQuery(.{
             .cpu_arch = .wasm32,
@@ -26,8 +26,8 @@ pub fn build(b: *std.Build) void {
     const run_filter_exports = b.addSystemCommand(&[_][]const u8{
         "uw8",
         "filter-exports",
-        "zig-out/bin/cart.wasm",
-        "zig-out/bin/cart-filtered.wasm",
+        "zig-out/bin/uw8-cart.wasm",
+        "zig-out/bin/uw8-cart-filtered.wasm",
     });
     run_filter_exports.step.dependOn(b.getInstallStep());
 
@@ -35,8 +35,8 @@ pub fn build(b: *std.Build) void {
         "wasm-opt",
         "-Oz",
         "-o",
-        "zig-out/cart.wasm",
-        "zig-out/bin/cart-filtered.wasm",
+        "zig-out/uw8-cart.wasm",
+        "zig-out/bin/uw8-cart-filtered.wasm",
     });
     run_wasm_opt.step.dependOn(&run_filter_exports.step);
 
@@ -45,8 +45,8 @@ pub fn build(b: *std.Build) void {
         "pack",
         "-l",
         "9",
-        "zig-out/cart.wasm",
-        "zig-out/cart.uw8",
+        "zig-out/uw8-cart.wasm",
+        "zig-out/uw8-cart.uw8",
     });
     run_uw8_pack.step.dependOn(&run_wasm_opt.step);
 
@@ -60,7 +60,7 @@ pub fn build(b: *std.Build) void {
         "run",
         "--watch",
         "-b",
-        "zig-out/cart.uw8",
+        "zig-out/uw8-cart.uw8",
     });
     run_cmd.step.dependOn(make_opt);
 
