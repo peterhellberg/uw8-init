@@ -47,3 +47,8 @@ export fn upd() void {
     uw8.printString("Hello: ");
     uw8.printInt(uw8.TIME_MS.*);
 }
+
+export fn snd(sampleIndex: i32) f32 {
+    _ = sampleIndex; // autofix
+    return 0;
+}
