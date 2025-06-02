@@ -19,7 +19,12 @@ pub fn build(b: *std.Build) void {
     exe.stack_size = 8192;
 
     exe.root_module.addImport("uw8", b.dependency("uw8", .{}).module("uw8"));
-    exe.root_module.export_symbol_names = &[_][]const u8{ "start", "snd", "upd" };
+
+    exe.root_module.export_symbol_names = &[_][]const u8{
+        "start",
+        "snd",
+        "upd",
+    };
 
     b.installArtifact(exe);
 

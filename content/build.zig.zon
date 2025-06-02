@@ -1,6 +1,7 @@
 .{
-    .name = "uw8-cart",
+    .name = .uw8_cart,
     .version = "0.0.0",
+    .fingerprint = 0xd0d0244948fa1442,
     .dependencies = .{
         .uw8 = .{
             .url = "https://github.com/peterhellberg/uw8/archive/refs/tags/v0.0.2.tar.gz",

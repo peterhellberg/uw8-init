@@ -49,6 +49,6 @@ export fn upd() void {
 }
 
 export fn snd(sampleIndex: i32) f32 {
-    _ = sampleIndex; // autofix
+    _ = sampleIndex;
     return 0;
 }
