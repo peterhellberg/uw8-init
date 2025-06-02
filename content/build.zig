@@ -82,6 +82,7 @@ pub fn build(b: *std.Build) void {
         "clear-zig",
         "build",
     });
+
     const spy_step = b.step("spy", "Run spy watching for file changes");
     spy_step.dependOn(&spy_cmd.step);
 }
